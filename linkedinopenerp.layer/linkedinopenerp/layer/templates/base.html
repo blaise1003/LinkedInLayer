@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="apple-touch-icon-precomposed" href="/static/linkedinopenerp/img/apple-touch-icon.png">
+ <link rel="stylesheet" type="text/css" href="/static/linkedinopenerp/styles/linkedin_common1.css">
+ <link rel="stylesheet" type="text/css" href="/static/linkedinopenerp/styles/linkedin_common2.css">
+ <title>Welcome!</title>
+</head>
+<body id="pagekey-member-home" class="en member v2 js ">
+ <input id="inSlowConfig" value="false" type="hidden">
+ <div id="header" class="global-nav member">
+ <div class="wrapper">
+ <ul class="util">
+ <li class="tab">
+     <a href="http://www.linkedin.it">LinkedIn</a>
+ </li>
+ </ul> 
+ <h1 class="logo"><a href="/" title="Home"> Home</a></h1>
+ </div>
+ <div class="bar">
+ <div class="wrapper">
+ <ul class="nav">
+ <li id="nav-primary-home" class="tab selected">
+ <a href="/home"><span>Home</span></a>
+ </li>
+ </ul> 
+ </div>
+ </div>
+ </div>
+<hr>
+<div id="body">
+    {% block content%}{% endblock %}
+</div>
+<div id="footer">
+ <div class="wrapper">
+ <ul class="nav-footer">
+ <li>
+ <a class="cust-svc-link" rel="nofollow" target="_blank" href="/admin"><strong>Admin</strong></a>
+ </li>
+ <li>
+ <a class="cust-svc-link" rel="nofollow" target="_blank" href="/settings"><strong>Settings</strong></a>
+ </li>
+ </ul>
+ <p id="copyright">
+     <a href="http://www.abstract.it">Abstract Open Solutions</a>
+ </p> 
+ </div>
+</div>
+</body>
+</html>

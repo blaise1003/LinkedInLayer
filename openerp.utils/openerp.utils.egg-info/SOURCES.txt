@@ -1,0 +1,13 @@
+README
+setup.cfg
+setup.py
+openerp/__init__.py
+openerp.utils.egg-info/PKG-INFO
+openerp.utils.egg-info/SOURCES.txt
+openerp.utils.egg-info/dependency_links.txt
+openerp.utils.egg-info/entry_points.txt
+openerp.utils.egg-info/not-zip-safe
+openerp.utils.egg-info/top_level.txt
+openerp/utils/__init__.py
+openerp/utils/orm.py
+openerp/utils/rpc.py
