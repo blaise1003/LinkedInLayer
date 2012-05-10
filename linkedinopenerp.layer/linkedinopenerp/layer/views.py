@@ -28,11 +28,20 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 # Extra fields
-FIELDS = ['specialties','honors','skills', 'interests','summary', 'picture-url', 'public-profile-url', 'languages']
+FIELDS = [
+    'specialties',
+    'honors',
+    'skills',
+    'interests',
+    'summary',
+    'picture-url',
+    'public-profile-url',
+    'languages']
 
 linkedin_info = get_config(
     "LINKEDIN_INFO",
-    ["KEY", "SECRET", "USERNAME", "PASSWORD", "CALLBACK_EMPLOYEE", "CALLBACK_CONTACT"])
+    ["KEY", "SECRET", "USERNAME", "PASSWORD",
+        "CALLBACK_EMPLOYEE", "CALLBACK_CONTACT"])
 openerp_info = get_config(
     "OPENERP_INFO",
     ["HOST", "PORT", "DBNAME", "USER", "PASSWORD"])
@@ -57,8 +66,7 @@ def linkedin_auth(request):
     logger.info("Linkedin Contact View")
     error_url = urlresolvers.reverse('error')
     logger.debug("POST")
-    # linkedin_api.api._callback_url = linkedin_info['CALLBACK_CONTACT']
-    linkedin_api.api._callback_url = "http://localhost:10000/auth/linkedin/company/"
+    linkedin_api.api._callback_url = linkedin_info['CALLBACK_COMPANY']
     result = linkedin_api.request_token()
     if result == True:
         url = linkedin_api.get_authorize_url()
@@ -103,9 +111,11 @@ def linkedin_auth_empl(request):
                 })
                 linkedin_extra_info = []
                 for item in linkedin_item:
-                    linkedin_extra_info.append(linkedin_api.get_profile(member_id=item.id, fields=FIELDS))
+                    linkedin_extra_info.append(linkedin_api.get_profile(
+                                        member_id=item.id, fields=FIELDS))
                 if len(linkedin_item) == 0:
-                    logger.warning("No Profile found on Linkedin for : %s" % empl['name'])
+                    logger.warning("No Profile found on Linkedin for : %s" % \
+                                                            empl['name'])
                 elif len(linkedin_item) > 1:
                     logger.warning("Too many profiles found on Linkedin for : %s" % empl['name'])
                     i=0
